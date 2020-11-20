@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var adminRouter = require('./admin/routes/index');
 
 var app = express();
 
@@ -17,16 +17,24 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './node_modules/admin-lte')));
+
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
+
+// app.use('/admin', express.static('./node_modules/admin-lte-express/public'))
+// app.use('/', require('admin-lte-express'));
+app.use('/admin', express.static(adminRouter));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
+// app.useStaticAssets({
+//   root: path.join(__dirname, '..', 'public'),
+//   prefix: '/public/',
+// });
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
