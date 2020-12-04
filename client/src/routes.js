@@ -23,12 +23,21 @@ import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
 
+import Posts from "views/pages/Tables"
+
 var routes = [
   {
     path: "/index",
     name: "Dashboard",
     icon: "ni ni-tv-2 text-primary",
     component: Index,
+    layout: "/admin"
+  },
+  {
+    path: "/posts",
+    name: "Bài viết",
+    icon: "ni ni-tv-2 text-primary",
+    component: Posts,
     layout: "/admin"
   },
   {
