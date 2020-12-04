@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "type": "module",
-    "client": "cd dashboard && yarn start",
+    "client": "cd ../client && yarn start",
     "server": "nodemon --exec babel-node ./bin/www",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
