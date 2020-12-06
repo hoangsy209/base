@@ -23,7 +23,8 @@ import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
 
-import Posts from "views/pages/Tables"
+import Posts from "views/pages/posts/List"
+import Users from "views/pages/users/List"
 
 var routes = [
   {
@@ -38,6 +39,13 @@ var routes = [
     name: "Bài viết",
     icon: "ni ni-tv-2 text-primary",
     component: Posts,
+    layout: "/admin"
+  },
+  {
+    path: "/users",
+    name: "Thành viên",
+    icon: "fas fa-user text-primary",
+    component: Users,
     layout: "/admin"
   },
   {
